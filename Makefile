@@ -17,7 +17,12 @@ help: ## This help.
 
 build: ## Build the Container
 	docker build . -t ${IMAGE}:centos7 -f el7.Dockerfile
+
+binary: build ## Create a Binary Artifact
 	docker run --rm -iv${PWD}:/host ${IMAGE}:centos7 bash -c 'cp -f /usr/bin/journald-cloudwatch-logs /host/bin/el7'
 
 publish: build ## Build & Publish the Container
 	docker push ${IMAGE}:centos7
+
+test: build ## Build & Test the Container
+	docker run --rm -iv${PWD}:/host ${IMAGE}:centos7 journald-cloudwatch-logs /host/sample.conf
