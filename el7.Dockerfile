@@ -12,11 +12,11 @@ RUN mkdir -p /go/bin && chmod -R 777 /go && cd /go \
   		go-toolset-7-golang \
 		&& yum clean all
 
-ENV GOPATH=/go \
+ENV GOPATH=/go\
 		GOOS=linux \
-    BASH_ENV=/opt/rh/go-toolset-7/enable \
-    ENV=/opt/rh/go-toolset-7/enable \
-    PROMPT_COMMAND=". /opt/rh/go-toolset-7/enable"
+		BASH_ENV=/opt/rh/go-toolset-7/enable \
+		ENV=/opt/rh/go-toolset-7/enable \
+		PROMPT_COMMAND=". /opt/rh/go-toolset-7/enable"
 
 WORKDIR /go/src
 
