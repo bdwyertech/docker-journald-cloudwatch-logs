@@ -1,6 +1,6 @@
 FROM centos:7
 
-ENV GIT_VERSION master
+ENV GIT_VERSION tweaks
 
 MAINTAINER Brian Dwyer
 
@@ -20,7 +20,7 @@ ENV GOPATH=/go \
 
 WORKDIR /go/src
 
-RUN git clone -b ${GIT_VERSION} https://github.com/saymedia/journald-cloudwatch-logs \
+RUN git clone -b ${GIT_VERSION} https://github.com/bdwyertech/journald-cloudwatch-logs \
 		&& cd journald-cloudwatch-logs \
 		&& . /opt/rh/go-toolset-7/enable \
 		&& go get \
